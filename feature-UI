@@ -1,0 +1,92 @@
+IAM
+
+IAM - Identity and Access Management
+
+	Process of controlling the access in Azure
+
+
+Authentication: Confirms identity of a user, device, or service.
+
+
+Authorization:  Determines what authenticated identities can access or perform.
+
+
+
+Aspect			Authentication (AuthN)			Authorization (AuthZ)
+Definition		Verifies identity			Grants/denies access rights
+Question Answered	“Who are you?”				“What can you do?”
+Timing	First step	Follows authentication
+Techniques		Passwords, MFA, biometrics		RBAC, ABAC, policies, scopes
+Output			Identity token/session	Access  	decision (allow/deny)
+Failure Risk		Identity theft, weak passwords		Over-permission, privilege escalation
+
+
+Microsoft Entra ID (Azure Active Directory)
+
+	-- Users
+	-- Applications
+	-- Groups
+	-- Devices
+
+RBAC : Role Based Access Control - is an IAM authorization model where permissions are grouped into roles, and users are assigned roles instead of individual permissions. This simplifies access management, enforces least privilege, and scales well in large organizations.
+
+
+Roles:
+
+	Owner --> He can assign / delete / create --> Highest Privilege
+
+	Contributor --> Can create, modify and delete but cannot assign roles
+
+	Reader --> Can only view
+
+
+Custom Roles:-  Admins / Owners will create the custom roles based on the requirement.
+
+
+Azure App Service:
+What it is: A fully managed platform for building, deploying, and scaling web apps, APIs, and mobile backends.
+
+Supported stacks: .NET, Java, Node.js, Python, PHP, and custom containers.
+
+Azure App Service Plan:
+What it is: Defines the compute resources (CPU, memory, disk, scaling) that your App Service apps run on.
+
+
+
+Aspect		App Service (Web App/API)		App Service Plan (Compute)
+Purpose		Hosts your application			Provides compute resources
+Focus		Code, runtime, features			Scaling, pricing, hardware
+Dependency	Needs a plan to run			Can host multiple apps
+Example		A Node.js API backend			Standard S1 plan with 2 cores, 3.5 GB RAM
+
+
+IaaS --> VM,Virtual Networks,
+	PaaS --> Storage Accounts, App Service
+	SaaS --> Teams, Gmail, Outlook
+
+Supports:
+	.net
+	Java
+	Python
+	REST
+	Go Lang
+	HTML
+	
+Auto Scaling:
+
+	1. Vertical Scaling (Scale Up):
+
+
+	2. Horizontal Scaling (Scale Out)
+
+
+git config --global user.name ""
+git config --global user.email ""
+
+
+
+
+
+
+
+	
