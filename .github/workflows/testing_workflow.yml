@@ -92,44 +92,51 @@ jobs:
           path: artifact/webapp.zip
 
 
-# # =====================================================
-# # CD JOB - DEPLOYMENT
-# # =====================================================
+# =====================================================
+# CD JOB - DEPLOYMENT
+# =====================================================
 
-#   deploy:
+  deploy:
 
-#     name: Deploy Web App
+    name: Deploy Web App
 
-#     # Run only after the build job succeeds
-#     needs: build
+    # Run only after the build job succeeds
+    needs: build
 
-#     # Use your self-hosted runner
-#     runs-on: self-hosted
+    # Use your self-hosted runner
+    runs-on: self-hosted
 
-#     # Use the selected GitHub Environment
-#     environment:
-#       name: ${{ inputs.deploymentEnvironment || 'dev' }}
+    # Use the selected GitHub Environment
+    environment:
+      name: ${{ inputs.deploymentEnvironment || 'dev' }}
 
-#     steps:
+    steps:
 
-#       # Download artifact created by the build job
-#       - name: Download Web App Artifact
-#         uses: actions/download-artifact@v4
-#         with:
-#           name: webapp
-#           path: artifact
-
-
-#       # Login to Azure using GitHub Secret
-#       - name: Login to Azure
-#         uses: azure/login@v2
-#         with:
-#           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      # Download artifact created by the build job
+      - name: Download Web App Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: webapp
+          path: artifact
 
 
-#       # Deploy artifact to Azure App Service
-#       - name: Deploy to Azure App Service
-#         uses: azure/webapps-deploy@v3
-#         with:
-#           app-name: ${{ inputs.webAppName || 'myadotesting' }}
-#           package: artifact/webapp.zip
+      # Login to Azure using GitHub Secret
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          creds: |
+            {
+              "clientId": "5533e627-73b6-4d85-9f44-1cba93de9ea6",
+              "clientSecret": "xGQ8Q~C6ibqtSwRuswv5IAtut_XqI_VUnLMkUchS",
+              "subscriptionId": "e2048caf-3ee9-47f3-bb37-793093775af5",
+              "tenantId": "4cb47cf3-58c2-4ea5-929c-f177a4c7d5a7"
+  
+            }
+
+
+      # Deploy artifact to Azure App Service
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ inputs.webAppName || 'myadotesting' }}
+          package: artifact/webapp.zip
