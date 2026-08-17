@@ -36,6 +36,10 @@ on:
 
 env:
   PYTHON_VERSION: '3.12'
+  "clientId": "APPLICATION_CLIENT_ID",
+  "clientSecret": "CLIENT_SECRET_VALUE",
+  "subscriptionId": "AZURE_SUBSCRIPTION_ID",
+  "tenantId": "AZURE_TENANT_ID"
 
 
 # =====================================================
