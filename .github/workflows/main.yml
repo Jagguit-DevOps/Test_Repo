@@ -36,10 +36,6 @@ on:
 
 env:
   PYTHON_VERSION: '3.12'
-  "clientId": "APPLICATION_CLIENT_ID",
-  "clientSecret": "CLIENT_SECRET_VALUE",
-  "subscriptionId": "AZURE_SUBSCRIPTION_ID",
-  "tenantId": "AZURE_TENANT_ID"
 
 
 # =====================================================
@@ -129,7 +125,10 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          "clientId": "5533e627-73b6-4d85-9f44-1cba93de9ea6",
+          "clientSecret": "xGQ8Q~C6ibqtSwRuswv5IAtut_XqI_VUnLMkUchS",
+          "subscriptionId": "e2048caf-3ee9-47f3-bb37-793093775af5",
+          "tenantId": "4cb47cf3-58c2-4ea5-929c-f177a4c7d5a7"
 
 
       # Deploy artifact to Azure App Service
